@@ -5,23 +5,36 @@ import jakarta.persistence.*;
 @Entity
 @Table(name ="tweets")
 
-public class Tweet{
+public class Tweet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String content;
-    private String author;
 
-    public Tweet(){}
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Tweet(String content, String author){
-        this.content = content;
-        this.author = author;
+    public Long getId() {
+        return id;
     }
-    public Long getId(){return id;}
-    public String getContent(){return content;}
-    public void setContent(String content){this.content = content;}
-    public String getAuthor(){return author;}
-    public void setAuthor(String author){this.author = author;}
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public User getUser(){
+        return user;
+    }
+    public void setUser(User user){
+        this.user = user;
+    }
+
 }
