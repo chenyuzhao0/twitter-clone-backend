@@ -34,4 +34,11 @@ public class TweetController {
     public List<Tweet> getUserTimeline(@PathVariable Long userId){
         return tweetRepository.findTimelineByUserId((userId));
     }
+
+    @PutMapping("/tweets/{tweetId}/like")
+    public Tweet likeTweet(@PathVariable Long tweetId){
+        tweetRepository.incrementLikes(tweetId);
+        return tweetRepository.findById(tweetId)
+                .orElseThrow(() -> new RuntimeException("Tweet not found"));
+    }
 }

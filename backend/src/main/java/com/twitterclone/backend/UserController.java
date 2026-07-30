@@ -8,7 +8,6 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    // 1. Inject the repository so Java knows about it
     @Autowired
     private UserRepository userRepository;
 

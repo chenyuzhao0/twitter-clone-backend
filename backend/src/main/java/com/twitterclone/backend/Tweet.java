@@ -16,6 +16,9 @@ public class Tweet {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(columnDefinition = "integer default 0")
+    private int likes = 0;
+
     public Long getId() {
         return id;
     }
@@ -37,4 +40,10 @@ public class Tweet {
         this.user = user;
     }
 
+    public int getLikes(){
+        return likes;
+    }
+    public void setLikes(int likes){
+        this.likes = likes;
+    }
 }
