@@ -13,11 +13,8 @@ public class UserController {
 
     @GetMapping("/create-test-user")
     public String createUser() {
-        // 2. Create a new user object
         User newUser = new User("chen_yu", "chen@upm.es", "Building a Twitter clone");
 
-        // 3. THIS is where the autocomplete works!
-        // When you type userRepository. here, save() will appear.
         userRepository.save(newUser);
 
         return "User saved to PostgreSQL successfully!";

@@ -18,7 +18,6 @@ public class User {
     private String email;
     private String bio;
 
-    // Empty constructor required by Spring
     public User() {}
 
     public User(String username, String email, String bio) {
